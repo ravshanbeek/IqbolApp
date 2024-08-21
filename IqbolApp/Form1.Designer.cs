@@ -146,7 +146,7 @@ namespace IqbolApp
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(515, 335);
             dataGridView1.TabIndex = 14;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            //dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // listBox
             // 
