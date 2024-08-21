@@ -46,73 +46,87 @@ namespace IqbolApp
             btnSave = new Button();
             btnBack = new Button();
             openFileDialog = new OpenFileDialog();
-
             ((System.ComponentModel.ISupportInitialize)pictureBoxProduct).BeginInit();
             SuspendLayout();
-
             // 
             // txtName
             // 
-            txtName.Location = new Point(30, 30);
-            txtName.Size = new Size(200, 30);
-            txtName.PlaceholderText = "Enter Product Name";
+            txtName.Location = new Point(31, 30);
+            txtName.Name = "txtName";
+            txtName.PlaceholderText = "Maxsulot nomini kiriting";
+            txtName.Size = new Size(295, 27);
+            txtName.TabIndex = 0;
             // 
             // txtActualAmount
             // 
-            txtActualAmount.Location = new Point(30, 80);
-            txtActualAmount.Size = new Size(200, 30);
-            txtActualAmount.PlaceholderText = "Enter Actual Amount";
+            txtActualAmount.Location = new Point(31, 80);
+            txtActualAmount.Name = "txtActualAmount";
+            txtActualAmount.PlaceholderText = "Maxsulotni tan narxini kiriting";
+            txtActualAmount.Size = new Size(295, 27);
+            txtActualAmount.TabIndex = 1;
             // 
             // txtAmount
             // 
-            txtAmount.Location = new Point(30, 130);
-            txtAmount.Size = new Size(200, 30);
-            txtAmount.PlaceholderText = "Enter Amount";
+            txtAmount.Location = new Point(31, 130);
+            txtAmount.Name = "txtAmount";
+            txtAmount.PlaceholderText = "Maxsulotni sotuvdagi narxini kiriting";
+            txtAmount.Size = new Size(295, 27);
+            txtAmount.TabIndex = 2;
             // 
             // txtCount
             // 
-            txtCount.Location = new Point(30, 180);
-            txtCount.Size = new Size(200, 30);
-            txtCount.PlaceholderText = "Enter Count";
+            txtCount.Location = new Point(31, 180);
+            txtCount.Name = "txtCount";
+            txtCount.PlaceholderText = "Maxsulot sonini kiriting";
+            txtCount.Size = new Size(295, 27);
+            txtCount.TabIndex = 3;
             // 
             // pictureBoxProduct
             // 
-            pictureBoxProduct.Location = new Point(250, 30);
-            pictureBoxProduct.Size = new Size(200, 200);
             pictureBoxProduct.BorderStyle = BorderStyle.FixedSingle;
+            pictureBoxProduct.Location = new Point(389, 30);
+            pictureBoxProduct.Name = "pictureBoxProduct";
+            pictureBoxProduct.Size = new Size(200, 200);
+            pictureBoxProduct.TabIndex = 4;
+            pictureBoxProduct.TabStop = false;
             // 
             // btnUploadImage
             // 
-            btnUploadImage.Location = new Point(250, 240);
+            btnUploadImage.Location = new Point(389, 240);
+            btnUploadImage.Name = "btnUploadImage";
             btnUploadImage.Size = new Size(200, 30);
-            btnUploadImage.Text = "Upload Image";
+            btnUploadImage.TabIndex = 5;
+            btnUploadImage.Text = "Rasm yuklash";
             btnUploadImage.Click += btnUploadImage_Click;
             // 
             // btnSave
             // 
             btnSave.Location = new Point(30, 240);
+            btnSave.Name = "btnSave";
             btnSave.Size = new Size(100, 30);
-            btnSave.Text = "Save";
+            btnSave.TabIndex = 6;
+            btnSave.Text = "Saqlash";
             btnSave.Click += btnSave_Click;
             // 
             // btnBack
             // 
-            btnBack.Location = new Point(140, 240);
+            btnBack.Location = new Point(226, 240);
+            btnBack.Name = "btnBack";
             btnBack.Size = new Size(100, 30);
-            btnBack.Text = "Back";
+            btnBack.TabIndex = 7;
+            btnBack.Text = "Orqaga";
             btnBack.Click += btnBack_Click;
             // 
             // openFileDialog
             // 
             openFileDialog.Filter = "Image Files|*.bmp;*.jpg;*.jpeg;*.png;*.gif";
-            openFileDialog.Title = "Select an Image";
-
+            openFileDialog.Title = "Rasmni tanlang";
             // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(480, 300);
+            ClientSize = new Size(653, 300);
             Controls.Add(txtName);
             Controls.Add(txtActualAmount);
             Controls.Add(txtAmount);
@@ -121,7 +135,8 @@ namespace IqbolApp
             Controls.Add(btnUploadImage);
             Controls.Add(btnSave);
             Controls.Add(btnBack);
-            Text = "Add Product";
+            Name = "Form3";
+            Text = "Maxsulot qo'shish";
             ((System.ComponentModel.ISupportInitialize)pictureBoxProduct).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -20,7 +20,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridViewProducts = new System.Windows.Forms.DataGridView();
-            this.buttonRed = new System.Windows.Forms.Button();
             this.imageColumn = new System.Windows.Forms.DataGridViewImageColumn();
 
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProducts)).BeginInit();
@@ -38,17 +37,6 @@
             this.dataGridViewProducts.RowTemplate.Height = 25;
             this.dataGridViewProducts.Size = new System.Drawing.Size(800, 400);
             this.dataGridViewProducts.TabIndex = 0;
-
-            // 
-            // buttonRed
-            // 
-            this.buttonRed.Location = new System.Drawing.Point(700, 405);
-            this.buttonRed.Name = "buttonRed";
-            this.buttonRed.Size = new System.Drawing.Size(75, 30);
-            this.buttonRed.TabIndex = 1;
-            this.buttonRed.Text = "Red";
-            this.buttonRed.UseVisualStyleBackColor = true;
-            this.buttonRed.Click += new System.EventHandler(this.buttonRed_Click);
 
             // 
             // imageColumn
