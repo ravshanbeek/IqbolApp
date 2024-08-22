@@ -43,16 +43,16 @@ namespace IqbolApp
             lblSalesTitle = new Label();
             lblTotal = new Label();
             dataGridView1 = new DataGridView();
-            View = new DataGridViewImageColumn();
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            amountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            countDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             productBindingSource = new BindingSource(components);
             listBox = new ListBox();
             button1 = new Button();
             pictureBox1 = new PictureBox();
             button2 = new Button();
+            View = new DataGridViewImageColumn();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            amountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            countDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -63,7 +63,7 @@ namespace IqbolApp
             titleLabel.AutoSize = true;
             titleLabel.Font = new Font("Arial", 36F, FontStyle.Bold);
             titleLabel.ForeColor = Color.Goldenrod;
-            titleLabel.Location = new Point(545, 20);
+            titleLabel.Location = new Point(468, 26);
             titleLabel.Name = "titleLabel";
             titleLabel.Size = new Size(191, 56);
             titleLabel.TabIndex = 0;
@@ -109,10 +109,10 @@ namespace IqbolApp
             // txtSearch
             // 
             txtSearch.Font = new Font("Arial", 14F);
-            txtSearch.Location = new Point(368, 134);
+            txtSearch.Location = new Point(291, 140);
             txtSearch.Multiline = true;
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(553, 52);
+            txtSearch.Size = new Size(434, 52);
             txtSearch.TabIndex = 5;
             // 
             // btnAddToBucket
@@ -121,9 +121,9 @@ namespace IqbolApp
             btnAddToBucket.FlatStyle = FlatStyle.Flat;
             btnAddToBucket.Font = new Font("Arial", 14F);
             btnAddToBucket.ForeColor = Color.White;
-            btnAddToBucket.Location = new Point(996, 134);
+            btnAddToBucket.Location = new Point(731, 140);
             btnAddToBucket.Name = "btnAddToBucket";
-            btnAddToBucket.Size = new Size(186, 52);
+            btnAddToBucket.Size = new Size(120, 52);
             btnAddToBucket.TabIndex = 10;
             btnAddToBucket.Text = "Qidirish";
             btnAddToBucket.UseVisualStyleBackColor = false;
@@ -134,7 +134,7 @@ namespace IqbolApp
             lblSalesTitle.AutoSize = true;
             lblSalesTitle.Font = new Font("Arial", 16F, FontStyle.Bold);
             lblSalesTitle.ForeColor = Color.Green;
-            lblSalesTitle.Location = new Point(1367, 29);
+            lblSalesTitle.Location = new Point(977, 29);
             lblSalesTitle.Name = "lblSalesTitle";
             lblSalesTitle.Size = new Size(128, 26);
             lblSalesTitle.TabIndex = 11;
@@ -145,7 +145,7 @@ namespace IqbolApp
             lblTotal.AutoSize = true;
             lblTotal.Font = new Font("Arial", 16F, FontStyle.Bold);
             lblTotal.ForeColor = Color.Green;
-            lblTotal.Location = new Point(1280, 661);
+            lblTotal.Location = new Point(890, 661);
             lblTotal.Name = "lblTotal";
             lblTotal.Size = new Size(74, 26);
             lblTotal.TabIndex = 13;
@@ -160,19 +160,70 @@ namespace IqbolApp
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { View, idDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, amountDataGridViewTextBoxColumn, countDataGridViewTextBoxColumn });
             dataGridView1.DataSource = productBindingSource;
-            dataGridView1.Location = new Point(368, 217);
+            dataGridView1.Location = new Point(291, 223);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(553, 335);
+            dataGridView1.Size = new Size(434, 335);
             dataGridView1.TabIndex = 14;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // productBindingSource
+            // 
+            productBindingSource.DataSource = typeof(Models.Product);
+            // 
+            // listBox
+            // 
+            listBox.BackColor = SystemColors.ButtonFace;
+            listBox.FormattingEnabled = true;
+            listBox.ItemHeight = 15;
+            listBox.Location = new Point(890, 134);
+            listBox.Name = "listBox";
+            listBox.Size = new Size(338, 424);
+            listBox.TabIndex = 15;
+            listBox.MouseDoubleClick += listBox1_MouseDoubleClick;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Transparent;
+            button1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            button1.ForeColor = Color.Green;
+            button1.Location = new Point(890, 578);
+            button1.Name = "button1";
+            button1.Size = new Size(118, 41);
+            button1.TabIndex = 16;
+            button1.Text = "Sotildi";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(12, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(273, 215);
+            pictureBox1.TabIndex = 17;
+            pictureBox1.TabStop = false;
+            pictureBox1.Visible = false;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.Transparent;
+            button2.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            button2.ForeColor = Color.Red;
+            button2.Location = new Point(1101, 578);
+            button2.Name = "button2";
+            button2.Size = new Size(118, 41);
+            button2.TabIndex = 18;
+            button2.Text = "Tozalash";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // View
             // 
             View.HeaderText = "Rasmi";
             View.Name = "View";
             View.ReadOnly = true;
+            View.Width = 60;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -180,6 +231,7 @@ namespace IqbolApp
             idDataGridViewTextBoxColumn.HeaderText = "Id";
             idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             idDataGridViewTextBoxColumn.ReadOnly = true;
+            idDataGridViewTextBoxColumn.Width = 60;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -194,6 +246,7 @@ namespace IqbolApp
             amountDataGridViewTextBoxColumn.HeaderText = "Narxi";
             amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
             amountDataGridViewTextBoxColumn.ReadOnly = true;
+            amountDataGridViewTextBoxColumn.Width = 80;
             // 
             // countDataGridViewTextBoxColumn
             // 
@@ -201,56 +254,7 @@ namespace IqbolApp
             countDataGridViewTextBoxColumn.HeaderText = "Miqdori";
             countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
             countDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // productBindingSource
-            // 
-            productBindingSource.DataSource = typeof(Models.Product);
-            // 
-            // listBox
-            // 
-            listBox.BackColor = SystemColors.ButtonFace;
-            listBox.FormattingEnabled = true;
-            listBox.ItemHeight = 15;
-            listBox.Location = new Point(1280, 134);
-            listBox.Name = "listBox";
-            listBox.Size = new Size(338, 424);
-            listBox.TabIndex = 15;
-            listBox.MouseDoubleClick += listBox1_MouseDoubleClick;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.Transparent;
-            button1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            button1.ForeColor = Color.Green;
-            button1.Location = new Point(1280, 578);
-            button1.Name = "button1";
-            button1.Size = new Size(118, 41);
-            button1.TabIndex = 16;
-            button1.Text = "Sotildi";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Location = new Point(12, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(334, 287);
-            pictureBox1.TabIndex = 17;
-            pictureBox1.TabStop = false;
-            pictureBox1.Visible = false;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.Transparent;
-            button2.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            button2.ForeColor = Color.Red;
-            button2.Location = new Point(1491, 578);
-            button2.Name = "button2";
-            button2.Size = new Size(118, 41);
-            button2.TabIndex = 18;
-            button2.Text = "Tozalash";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            countDataGridViewTextBoxColumn.Width = 80;
             // 
             // Form1
             // 
@@ -288,12 +292,12 @@ namespace IqbolApp
         private Button button1;
         private BindingSource productBindingSource;
         private System.ComponentModel.IContainer components;
+        private PictureBox pictureBox1;
+        private Button button2;
         private DataGridViewImageColumn View;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
-        private PictureBox pictureBox1;
-        private Button button2;
     }
 }

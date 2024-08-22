@@ -22,6 +22,9 @@ namespace IqbolApp
         {
             components = new System.ComponentModel.Container();
             dataGridViewProducts = new DataGridView();
+            productBindingSource = new BindingSource(components);
+            pictureBox1 = new PictureBox();
+            back = new Button();
             imageColumn = new DataGridViewImageColumn();
             deleteColumn = new DataGridViewButtonColumn();
             updateColumn = new DataGridViewButtonColumn();
@@ -30,9 +33,6 @@ namespace IqbolApp
             amountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             countDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            productBindingSource = new BindingSource(components);
-            pictureBox1 = new PictureBox();
-            back = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewProducts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -54,67 +54,13 @@ namespace IqbolApp
             dataGridViewProducts.TabIndex = 0;
             dataGridViewProducts.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // imageColumn
-            // 
-            imageColumn.HeaderText = "Rasm";
-            imageColumn.Name = "imageColumn";
-            // 
-            // deleteColumn
-            // 
-            deleteColumn.HeaderText = "O'chirish";
-            deleteColumn.Name = "deleteColumn";
-            deleteColumn.Text = "❌";
-            deleteColumn.UseColumnTextForButtonValue = true;
-            // 
-            // updateColumn
-            // 
-            updateColumn.HeaderText = "Yangilash";
-            updateColumn.Name = "updateColumn";
-            updateColumn.Text = "✅";
-            updateColumn.UseColumnTextForButtonValue = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            nameDataGridViewTextBoxColumn.HeaderText = "Nomi";
-            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            nameDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // actualAmountDataGridViewTextBoxColumn
-            // 
-            actualAmountDataGridViewTextBoxColumn.DataPropertyName = "ActualAmount";
-            actualAmountDataGridViewTextBoxColumn.HeaderText = "Tan natxi";
-            actualAmountDataGridViewTextBoxColumn.Name = "actualAmountDataGridViewTextBoxColumn";
-            actualAmountDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // amountDataGridViewTextBoxColumn
-            // 
-            amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
-            amountDataGridViewTextBoxColumn.HeaderText = "Sotuvdagi narxi";
-            amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
-            amountDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // countDataGridViewTextBoxColumn
-            // 
-            countDataGridViewTextBoxColumn.DataPropertyName = "Count";
-            countDataGridViewTextBoxColumn.HeaderText = "Miqdori";
-            countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
-            countDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.Width = 60;
-            // 
             // productBindingSource
             // 
             productBindingSource.DataSource = typeof(Models.Product);
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(1383, 12);
+            pictureBox1.Location = new Point(624, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(359, 213);
             pictureBox1.TabIndex = 1;
@@ -125,13 +71,69 @@ namespace IqbolApp
             // 
             back.BackColor = Color.Red;
             back.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            back.Location = new Point(1383, 711);
+            back.Location = new Point(624, 476);
             back.Name = "back";
             back.Size = new Size(102, 50);
             back.TabIndex = 2;
             back.Text = "Orqaga";
             back.UseVisualStyleBackColor = false;
             back.Click += back_Click;
+            // 
+            // imageColumn
+            // 
+            imageColumn.HeaderText = "Rasm";
+            imageColumn.Name = "imageColumn";
+            imageColumn.Width = 60;
+            // 
+            // deleteColumn
+            // 
+            deleteColumn.HeaderText = "O'chirish";
+            deleteColumn.Name = "deleteColumn";
+            deleteColumn.Text = "❌";
+            deleteColumn.UseColumnTextForButtonValue = true;
+            deleteColumn.Width = 60;
+            // 
+            // updateColumn
+            // 
+            updateColumn.HeaderText = "Yangilash";
+            updateColumn.Name = "updateColumn";
+            updateColumn.Text = "✅";
+            updateColumn.UseColumnTextForButtonValue = true;
+            updateColumn.Width = 60;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Nomi";
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // actualAmountDataGridViewTextBoxColumn
+            // 
+            actualAmountDataGridViewTextBoxColumn.DataPropertyName = "ActualAmount";
+            actualAmountDataGridViewTextBoxColumn.HeaderText = "Tan natxi";
+            actualAmountDataGridViewTextBoxColumn.Name = "actualAmountDataGridViewTextBoxColumn";
+            actualAmountDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // amountDataGridViewTextBoxColumn
+            // 
+            amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
+            amountDataGridViewTextBoxColumn.HeaderText = "Sotuvdagi narxi";
+            amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
+            amountDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // countDataGridViewTextBoxColumn
+            // 
+            countDataGridViewTextBoxColumn.DataPropertyName = "Count";
+            countDataGridViewTextBoxColumn.HeaderText = "Miqdori";
+            countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
+            countDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.Width = 60;
             // 
             // Form2
             // 
@@ -229,6 +231,7 @@ namespace IqbolApp
         }
         private BindingSource productBindingSource;
         private PictureBox pictureBox1;
+        private Button back;
         private DataGridViewImageColumn imageColumn;
         private DataGridViewButtonColumn deleteColumn;
         private DataGridViewButtonColumn updateColumn;
@@ -237,6 +240,5 @@ namespace IqbolApp
         private DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private Button back;
     }
 }
