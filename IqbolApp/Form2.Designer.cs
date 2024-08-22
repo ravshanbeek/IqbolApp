@@ -1,13 +1,13 @@
-﻿namespace IqbolApp
+﻿using IqbolApp.Services;
+using System.Windows.Forms;
+
+namespace IqbolApp
 {
     partial class Form2
     {
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.DataGridView dataGridViewProducts;
-        private System.Windows.Forms.Button buttonRed;
-        private System.Windows.Forms.DataGridViewImageColumn imageColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn deleteColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn updateColumn;
+        private readonly IProductService _productService;
 
         protected override void Dispose(bool disposing)
         {
@@ -20,104 +20,223 @@
 
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dataGridViewProducts = new System.Windows.Forms.DataGridView();
-            this.imageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.deleteColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.updateColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.buttonRed = new System.Windows.Forms.Button();
-
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProducts)).BeginInit();
-            this.SuspendLayout();
-
+            components = new System.ComponentModel.Container();
+            dataGridViewProducts = new DataGridView();
+            imageColumn = new DataGridViewImageColumn();
+            deleteColumn = new DataGridViewButtonColumn();
+            updateColumn = new DataGridViewButtonColumn();
+            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            actualAmountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            amountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            countDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            productBindingSource = new BindingSource(components);
+            pictureBox1 = new PictureBox();
+            back = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewProducts).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // dataGridViewProducts
             // 
-            this.dataGridViewProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.imageColumn,
-            this.deleteColumn,
-            this.updateColumn});
-            this.dataGridViewProducts.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridViewProducts.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewProducts.Name = "dataGridViewProducts";
-            this.dataGridViewProducts.RowTemplate.Height = 25;
-            this.dataGridViewProducts.Size = new System.Drawing.Size(800, 400);
-            this.dataGridViewProducts.TabIndex = 0;
-            this.dataGridViewProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProducts_CellContentClick);
-
+            dataGridViewProducts.AllowUserToAddRows = false;
+            dataGridViewProducts.AutoGenerateColumns = false;
+            dataGridViewProducts.BackgroundColor = SystemColors.GradientInactiveCaption;
+            dataGridViewProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewProducts.Columns.AddRange(new DataGridViewColumn[] { imageColumn, deleteColumn, updateColumn, nameDataGridViewTextBoxColumn, actualAmountDataGridViewTextBoxColumn, amountDataGridViewTextBoxColumn, countDataGridViewTextBoxColumn, idDataGridViewTextBoxColumn });
+            dataGridViewProducts.DataSource = productBindingSource;
+            dataGridViewProducts.Dock = DockStyle.Top;
+            dataGridViewProducts.GridColor = SystemColors.InactiveCaptionText;
+            dataGridViewProducts.Location = new Point(0, 0);
+            dataGridViewProducts.Name = "dataGridViewProducts";
+            dataGridViewProducts.Size = new Size(1805, 961);
+            dataGridViewProducts.TabIndex = 0;
+            dataGridViewProducts.CellContentClick += dataGridView1_CellContentClick;
             // 
             // imageColumn
             // 
-            this.imageColumn.HeaderText = "Product Image";
-            this.imageColumn.Name = "imageColumn";
-            this.imageColumn.Width = 150;
-
+            imageColumn.HeaderText = "Rasm";
+            imageColumn.Name = "imageColumn";
             // 
             // deleteColumn
             // 
-            this.deleteColumn.HeaderText = "Delete";
-            this.deleteColumn.Name = "deleteColumn";
-            this.deleteColumn.Text = "❌";
-            this.deleteColumn.UseColumnTextForButtonValue = true;
-            this.deleteColumn.Width = 50;
-            this.deleteColumn.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-
+            deleteColumn.HeaderText = "O'chirish";
+            deleteColumn.Name = "deleteColumn";
+            deleteColumn.Text = "❌";
+            deleteColumn.UseColumnTextForButtonValue = true;
             // 
             // updateColumn
             // 
-            this.updateColumn.HeaderText = "Update";
-            this.updateColumn.Name = "updateColumn";
-            this.updateColumn.Text = "✅";
-            this.updateColumn.UseColumnTextForButtonValue = true;
-            this.updateColumn.Width = 50;
-            this.updateColumn.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-
+            updateColumn.HeaderText = "Yangilash";
+            updateColumn.Name = "updateColumn";
+            updateColumn.Text = "✅";
+            updateColumn.UseColumnTextForButtonValue = true;
             // 
-            // buttonRed
+            // nameDataGridViewTextBoxColumn
             // 
-            this.buttonRed.Location = new System.Drawing.Point(350, 410);
-            this.buttonRed.Name = "buttonRed";
-            this.buttonRed.Size = new System.Drawing.Size(75, 23);
-            this.buttonRed.TabIndex = 1;
-            this.buttonRed.Text = "Red Button";
-            this.buttonRed.UseVisualStyleBackColor = true;
-            this.buttonRed.Click += new System.EventHandler(this.buttonRed_Click);
-
+            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Nomi";
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // actualAmountDataGridViewTextBoxColumn
+            // 
+            actualAmountDataGridViewTextBoxColumn.DataPropertyName = "ActualAmount";
+            actualAmountDataGridViewTextBoxColumn.HeaderText = "Tan natxi";
+            actualAmountDataGridViewTextBoxColumn.Name = "actualAmountDataGridViewTextBoxColumn";
+            actualAmountDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // amountDataGridViewTextBoxColumn
+            // 
+            amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
+            amountDataGridViewTextBoxColumn.HeaderText = "Sotuvdagi narxi";
+            amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
+            amountDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // countDataGridViewTextBoxColumn
+            // 
+            countDataGridViewTextBoxColumn.DataPropertyName = "Count";
+            countDataGridViewTextBoxColumn.HeaderText = "Miqdori";
+            countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
+            countDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // productBindingSource
+            // 
+            productBindingSource.DataSource = typeof(Models.Product);
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(1383, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(359, 213);
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            pictureBox1.Visible = false;
+            // 
+            // back
+            // 
+            back.BackColor = Color.Red;
+            back.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            back.Location = new Point(1383, 711);
+            back.Name = "back";
+            back.Size = new Size(102, 50);
+            back.TabIndex = 2;
+            back.Text = "Orqaga";
+            back.UseVisualStyleBackColor = false;
+            back.Click += back_Click;
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.buttonRed);
-            this.Controls.Add(this.dataGridViewProducts);
-            this.Name = "Form2";
-            this.Text = "Product List";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProducts)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1805, 964);
+            Controls.Add(back);
+            Controls.Add(pictureBox1);
+            Controls.Add(dataGridViewProducts);
+            Name = "Form2";
+            Text = "Product List";
+            WindowState = FormWindowState.Maximized;
+            ((System.ComponentModel.ISupportInitialize)dataGridViewProducts).EndInit();
+            ((System.ComponentModel.ISupportInitialize)productBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
         }
 
-        private void dataGridViewProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            try
             {
-                if (dataGridViewProducts.Columns[e.ColumnIndex].Name == "deleteColumn")
+                if (e.ColumnIndex == 0)
                 {
-                    // Handle delete logic
-                    MessageBox.Show("Delete row logic goes here for row: " + e.RowIndex);
-                }
-                else if (dataGridViewProducts.Columns[e.ColumnIndex].Name == "updateColumn")
-                {
-                    // Handle update logic
-                    MessageBox.Show("Update logic goes here for row: " + e.RowIndex);
-                }
-            }
-        }
+                    DataGridViewRow selectedRow = dataGridViewProducts.Rows[e.RowIndex];
+                    var productId = (int)selectedRow.Cells[7].Value;
+                    var product = _productService.GetById(productId);
 
+                    if (product is null)
+                        MessageBox.Show("Siz maxsulot bo'lmagan qatorni tanladiz");
+
+                    string rootDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "root");
+                    string filePath = Path.Combine(rootDirectory, product.PhotoId);
+
+                    if (File.Exists(filePath))
+                    {
+                        pictureBox1.Image = Image.FromFile(filePath); // Load the image into the PictureBox
+                        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage; // Optional: Adjust size mode
+                        pictureBox1.Visible = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Rasm topilmadi!");
+                    }
+                }
+                else if (e.ColumnIndex == 1)
+                {
+                    DataGridViewRow selectedRow = dataGridViewProducts.Rows[e.RowIndex];
+                    var productId = (int)selectedRow.Cells[7].Value;
+                    var product = _productService.GetById(productId);
+
+                    if (product is null)
+                        MessageBox.Show("Siz maxsulot bo'lmagan qatorni tanladiz");
+
+                    _productService.DeleteProduct(productId);
+                    var products = _productService.GetAllProducts();
+                    this.Close();
+
+                    // Create and show the new form with the product list
+                    var productListForm = new Form2(products, _productService);
+                    productListForm.Show();
+                    //var productListForm = new Form2(products, _productService);
+                    //productListForm.Show();
+                }
+                else if (e.ColumnIndex == 2)
+                {
+                    DataGridViewRow selectedRow = dataGridViewProducts.Rows[e.RowIndex];
+                    var productId = (int)selectedRow.Cells[7].Value;
+                    var product = _productService.GetById(productId);
+
+                    if (product is null)
+                        MessageBox.Show("Siz maxsulot bo'lmagan qatorni tanladiz");
+
+                    if (!selectedRow.Cells[4].Value.ToString().Trim().All(x => char.IsDigit(x))
+                        || !selectedRow.Cells[5].Value.ToString().Trim().All(x => char.IsDigit(x))
+                        || !selectedRow.Cells[6].Value.ToString().Trim().All(x => char.IsDigit(x)))
+                        MessageBox.Show("Tan narxi, Sotuvdagi narxi va Miqdori faqat raqam bulishi kerak");
+
+                    product.Name = selectedRow.Cells[3].Value.ToString();
+                    product.ActualAmount = (float)selectedRow.Cells[4].Value;
+                    product.Amount = (float)selectedRow.Cells[5].Value;
+                    product.Count = (int)selectedRow.Cells[6].Value;
+
+                    _productService.UpdateProduct(product);
+                    var products = _productService.GetAllProducts();
+
+                }
+                
+            }
+            catch (Exception) { }
+        }
         private void buttonRed_Click(object sender, EventArgs e)
         {
             // Your logic for the Red button click event
         }
+        private BindingSource productBindingSource;
+        private PictureBox pictureBox1;
+        private DataGridViewImageColumn imageColumn;
+        private DataGridViewButtonColumn deleteColumn;
+        private DataGridViewButtonColumn updateColumn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn actualAmountDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private Button back;
     }
 }

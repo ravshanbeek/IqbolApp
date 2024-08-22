@@ -14,7 +14,7 @@ namespace IqbolApp.Models
         public float ActualAmount { get; set; }
         public float Amount { get; set; }
         public int Count { get; set; }
-        public Guid PhotoId { get; set; }
+        public string PhotoId { get; set; }
 
     }
 }

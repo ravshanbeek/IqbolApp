@@ -2,6 +2,7 @@
 using IqbolApp.Services;
 using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
 
@@ -144,41 +145,54 @@ namespace IqbolApp
 
         private void btnUploadImage_Click(object sender, EventArgs e)
         {
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            try
             {
-                string filePath = openFileDialog.FileName;
-                string fileName = Guid.NewGuid().ToString();
-
-                // Set the root directory where the image will be saved
-                string rootDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "root");
-
-                // Ensure the root directory exists
-                if (!Directory.Exists(rootDirectory))
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    Directory.CreateDirectory(rootDirectory);
+                    string filePath = openFileDialog.FileName;
+                    string fileName = Guid.NewGuid().ToString() + ".png"; // Ensure the file is saved as a .png
+
+                    // Set the root directory where the image will be saved
+                    string rootDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "root");
+
+                    // Ensure the root directory exists
+                    if (!Directory.Exists(rootDirectory))
+                    {
+                        Directory.CreateDirectory(rootDirectory);
+                    }
+
+                    // Load the image from the selected file
+                    using (Image image = Image.FromFile(filePath))
+                    {
+                        // Save the image as .png in the root directory
+                        string savePath = Path.Combine(rootDirectory, fileName);
+                        image.Save(savePath, ImageFormat.Png);
+
+                        // Store the saved path for later use when saving the product
+                        uploadedImagePath = savePath;
+
+                        // Load and display the image in PictureBox
+                        pictureBoxProduct.Image = Image.FromFile(savePath);
+                    }
                 }
-
-                // Save the image in the root directory
-                string savePath = Path.Combine(rootDirectory, fileName);
-                File.Copy(filePath, savePath, true);
-
-                // Store the saved path for later use when saving the product
-                uploadedImagePath = savePath;
-
-                // Load and display the image in PictureBox
-                pictureBoxProduct.Image = Image.FromFile(savePath);
+            }
+            catch (Exception ex)
+            {
+                // Display the error message in a MessageBox or handle it as needed
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(uploadedImagePath))
+            if (string.IsNullOrEmpty(txtName.Text)
+                || string.IsNullOrEmpty(txtCount.Text)
+                || string.IsNullOrEmpty(txtActualAmount.Text)
+                || string.IsNullOrEmpty(txtAmount.Text))
             {
-                MessageBox.Show("Please upload an image before saving the product.");
+                MessageBox.Show("Maxsulot nomi, Maxsulot soni, Maxsulot narxi va tannarxi bo'sh bolmasligi kerak");
                 return;
             }
-
             // Create a new Product instance from input fields
             Product product = new Product
             {
@@ -187,13 +201,13 @@ namespace IqbolApp
                 ActualAmount = float.Parse(txtActualAmount.Text),
                 Amount = float.Parse(txtAmount.Text),
                 Count = int.Parse(txtCount.Text),
-                PhotoId = Guid.Parse(Path.GetFileName(uploadedImagePath)) // Save only the file name or path if needed
+                PhotoId = Path.GetFileName(uploadedImagePath)// Save only the file name or path if needed
             };
 
             productService.AddProduct(product);
 
             // Logic to save the product object to your database or collection
-            MessageBox.Show("Product saved successfully!");
+            MessageBox.Show("Maxsulot qo'shildi!");
         }
 
         private void btnBack_Click(object sender, EventArgs e)
