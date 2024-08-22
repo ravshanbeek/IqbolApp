@@ -52,68 +52,76 @@ namespace IqbolApp
             // 
             // txtName
             // 
-            txtName.Location = new Point(31, 30);
+            txtName.Location = new Point(27, 22);
+            txtName.Margin = new Padding(3, 2, 3, 2);
             txtName.Name = "txtName";
             txtName.PlaceholderText = "Maxsulot nomini kiriting";
-            txtName.Size = new Size(295, 27);
+            txtName.Size = new Size(259, 23);
             txtName.TabIndex = 0;
             // 
             // txtActualAmount
             // 
-            txtActualAmount.Location = new Point(31, 80);
+            txtActualAmount.Location = new Point(27, 60);
+            txtActualAmount.Margin = new Padding(3, 2, 3, 2);
             txtActualAmount.Name = "txtActualAmount";
             txtActualAmount.PlaceholderText = "Maxsulotni tan narxini kiriting";
-            txtActualAmount.Size = new Size(295, 27);
+            txtActualAmount.Size = new Size(259, 23);
             txtActualAmount.TabIndex = 1;
             // 
             // txtAmount
             // 
-            txtAmount.Location = new Point(31, 130);
+            txtAmount.Location = new Point(27, 98);
+            txtAmount.Margin = new Padding(3, 2, 3, 2);
             txtAmount.Name = "txtAmount";
-            txtAmount.PlaceholderText = "Maxsulotni sotuvdagi narxini kiriting";
-            txtAmount.Size = new Size(295, 27);
+            txtAmount.PlaceholderText = "Foizni kiriting";
+            txtAmount.Size = new Size(259, 23);
             txtAmount.TabIndex = 2;
             // 
             // txtCount
             // 
-            txtCount.Location = new Point(31, 180);
+            txtCount.Location = new Point(27, 135);
+            txtCount.Margin = new Padding(3, 2, 3, 2);
             txtCount.Name = "txtCount";
             txtCount.PlaceholderText = "Maxsulot sonini kiriting";
-            txtCount.Size = new Size(295, 27);
+            txtCount.Size = new Size(259, 23);
             txtCount.TabIndex = 3;
             // 
             // pictureBoxProduct
             // 
             pictureBoxProduct.BorderStyle = BorderStyle.FixedSingle;
-            pictureBoxProduct.Location = new Point(389, 30);
+            pictureBoxProduct.Location = new Point(340, 22);
+            pictureBoxProduct.Margin = new Padding(3, 2, 3, 2);
             pictureBoxProduct.Name = "pictureBoxProduct";
-            pictureBoxProduct.Size = new Size(200, 200);
+            pictureBoxProduct.Size = new Size(175, 150);
             pictureBoxProduct.TabIndex = 4;
             pictureBoxProduct.TabStop = false;
             // 
             // btnUploadImage
             // 
-            btnUploadImage.Location = new Point(389, 240);
+            btnUploadImage.Location = new Point(340, 180);
+            btnUploadImage.Margin = new Padding(3, 2, 3, 2);
             btnUploadImage.Name = "btnUploadImage";
-            btnUploadImage.Size = new Size(200, 30);
+            btnUploadImage.Size = new Size(175, 22);
             btnUploadImage.TabIndex = 5;
             btnUploadImage.Text = "Rasm yuklash";
             btnUploadImage.Click += btnUploadImage_Click;
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(30, 240);
+            btnSave.Location = new Point(26, 180);
+            btnSave.Margin = new Padding(3, 2, 3, 2);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(100, 30);
+            btnSave.Size = new Size(88, 22);
             btnSave.TabIndex = 6;
             btnSave.Text = "Saqlash";
             btnSave.Click += btnSave_Click;
             // 
             // btnBack
             // 
-            btnBack.Location = new Point(226, 240);
+            btnBack.Location = new Point(198, 180);
+            btnBack.Margin = new Padding(3, 2, 3, 2);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(100, 30);
+            btnBack.Size = new Size(88, 22);
             btnBack.TabIndex = 7;
             btnBack.Text = "Orqaga";
             btnBack.Click += btnBack_Click;
@@ -125,9 +133,9 @@ namespace IqbolApp
             // 
             // Form3
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(653, 300);
+            ClientSize = new Size(571, 225);
             Controls.Add(txtName);
             Controls.Add(txtActualAmount);
             Controls.Add(txtAmount);
@@ -136,6 +144,7 @@ namespace IqbolApp
             Controls.Add(btnUploadImage);
             Controls.Add(btnSave);
             Controls.Add(btnBack);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form3";
             Text = "Maxsulot qo'shish";
             ((System.ComponentModel.ISupportInitialize)pictureBoxProduct).EndInit();
@@ -199,7 +208,7 @@ namespace IqbolApp
                 Id = 0, // This can be handled by the database or set to a unique identifier like GUID
                 Name = txtName.Text,
                 ActualAmount = float.Parse(txtActualAmount.Text),
-                Amount = float.Parse(txtAmount.Text),
+                Amount = (float.Parse(txtAmount.Text)/100 + 1) * float.Parse(txtActualAmount.Text),
                 Count = int.Parse(txtCount.Text),
                 PhotoId = Path.GetFileName(uploadedImagePath)// Save only the file name or path if needed
             };

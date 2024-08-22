@@ -130,7 +130,10 @@ namespace IqbolApp
         {
             listBox.Items.Clear(); // Clear the current items in the ListBox
             if (bucketList is null)
+            {
+                lblTotal.Text = $"Umumiy: {0}";
                 return;
+            }
             foreach (var item in bucketList)
             {
                 listBox.Items.Add($"{item.ProductName} - Soni: {item.Count}, Narxi: {item.Cost}");
@@ -228,6 +231,7 @@ namespace IqbolApp
         private void button2_Click(object sender, EventArgs e)
         {
             listBox.Items.Clear();
+            UpdateBucketListDisplay(null);
             SaveBucketToJsonFile(null);
         }
     }
