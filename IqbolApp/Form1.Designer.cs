@@ -52,6 +52,7 @@ namespace IqbolApp
             listBox = new ListBox();
             button1 = new Button();
             pictureBox1 = new PictureBox();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -220,7 +221,7 @@ namespace IqbolApp
             // 
             button1.BackColor = Color.Transparent;
             button1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            button1.ForeColor = Color.Red;
+            button1.ForeColor = Color.Green;
             button1.Location = new Point(1280, 578);
             button1.Name = "button1";
             button1.Size = new Size(118, 41);
@@ -238,12 +239,26 @@ namespace IqbolApp
             pictureBox1.TabStop = false;
             pictureBox1.Visible = false;
             // 
+            // button2
+            // 
+            button2.BackColor = Color.Transparent;
+            button2.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            button2.ForeColor = Color.Red;
+            button2.Location = new Point(1491, 578);
+            button2.Name = "button2";
+            button2.Size = new Size(118, 41);
+            button2.TabIndex = 18;
+            button2.Text = "Tozalash";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
             // Form1
             // 
             BackColor = Color.White;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1798, 774);
+            Controls.Add(button2);
             Controls.Add(pictureBox1);
             Controls.Add(button1);
             Controls.Add(listBox);
@@ -279,5 +294,6 @@ namespace IqbolApp
         private DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
         private PictureBox pictureBox1;
+        private Button button2;
     }
 }

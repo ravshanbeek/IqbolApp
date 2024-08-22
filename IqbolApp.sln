@@ -5,8 +5,6 @@ VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IqbolApp", "IqbolApp\IqbolApp.csproj", "{B5911BC5-7F5B-42E7-8956-04EF23A49C95}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetUp", "SetUp\SetUp.vdproj", "{9C8E4FE7-7237-4AD4-82A9-D104F252319B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,8 +15,6 @@ Global
 		{B5911BC5-7F5B-42E7-8956-04EF23A49C95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5911BC5-7F5B-42E7-8956-04EF23A49C95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5911BC5-7F5B-42E7-8956-04EF23A49C95}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9C8E4FE7-7237-4AD4-82A9-D104F252319B}.Debug|Any CPU.ActiveCfg = Debug
-		{9C8E4FE7-7237-4AD4-82A9-D104F252319B}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

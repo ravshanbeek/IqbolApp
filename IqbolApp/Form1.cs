@@ -83,7 +83,7 @@ namespace IqbolApp
                 var list = LoadBucketFromJsonFile();
                 if (list.Any(x => x.Id == productId))
                 {
-                    list.FirstOrDefault().Count++;
+                    list.Where(x => x.Id == productId).FirstOrDefault().Count++;
                 }
                 else
                 {
@@ -153,13 +153,13 @@ namespace IqbolApp
             var products = _productService.GetAllProducts();
             var bucketList = LoadBucketFromJsonFile();
 
-            foreach ( var bucket in bucketList)
+            foreach (var bucket in bucketList)
             {
                 var product = products.Where(x => x.Id == bucket.Id).FirstOrDefault();
                 if (product is null)
                     continue;
 
-                if(product.Count < bucket.Count)
+                if (product.Count < bucket.Count)
                 {
                     MessageBox.Show($"Sizda {bucket.Count} ta {bucket.ProductName} yo'q");
                     return;
@@ -223,6 +223,12 @@ namespace IqbolApp
         private void Form1_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            listBox.Items.Clear();
+            SaveBucketToJsonFile(null);
         }
     }
 }
